@@ -1,0 +1,6 @@
+1. db.collections.insertOne(document, {writeConcern: document})
+    -> writeConcern: Write concern describes the level of acknowledgment requested from MongoDB for write operations to a standalone mongod, replica sets, or sharded clusters. In sharded clusters, mongos instances will pass the write concern on to the shards.
+
+    For multi-document transactions, you set the write concern at the transaction level, not at the individual operation level. Do not explicitly set the write concern for individual write operations in a transaction.
+
+    If you specify a "majority" write concern for a multi-document transaction and the transaction fails to replicate to the calculated majority of replica set members, then the transaction may not immediately roll back on replica set members. The replica set will be eventually consistent. A transaction is always applied or rolled back on all replica set members.
